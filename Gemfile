@@ -45,3 +45,17 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
+gem 'config', '~> 3.1'
+gem 'factory_bot_rails', '~> 6.1'
+gem 'grpc', '~> 1.37'
+gem 'gruf', '~> 2.10'
+gem 'gruf-rspec', '~> 0.3.0'
+gem 'gruf-stackdriver-trace', '~> 0.1.0'
+gem 'active_model_serializers', '~> 0.10.2'
+gem 'tugo_common', '~> 0.1.0', git: 'https://github.com/nistelrooy1984/tugo_common_plugin.git', branch: 'master'
+gem 'rails-i18n', '~> 6.0'
+
+gem 'health_check', '~> 3.0'
+gem 'rack-health', '~> 0.1.2'
