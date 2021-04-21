@@ -21,6 +21,9 @@ stop:
 bundle:
 	docker-compose run --rm app bundle install
 
+bundle-update:
+	docker-compose run --rm app bundle update
+
 console:
 	docker-compose run --rm app bundle exec rails console
 
@@ -37,4 +40,4 @@ attach:
 	docker container attach $(docker-compose ps -q | head -n 1)
 
 usage:
-	@echo usage: [build, up, up-bridge, down, stop, bundle, console, rubocop-fix, rspec, update-pb, attach]
+	@echo usage: [build, up, up-bridge, down, stop, bundle, bundle-update, console, rubocop-fix, rspec, update-pb, attach]
