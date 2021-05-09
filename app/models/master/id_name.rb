@@ -5,4 +5,3 @@ module Master
     attributes :id, :name
   end
 end
-  

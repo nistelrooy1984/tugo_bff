@@ -2,7 +2,7 @@
 
 class Contacts::V1::ContactsController < ApplicationApiController
   def index
-    render json: {'contacts': Settings.contacts.host}, status: 200
+    render json: { 'contacts': Settings.contacts.host }, status: 200
   end
 
   def create

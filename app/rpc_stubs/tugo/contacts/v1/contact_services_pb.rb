@@ -9,7 +9,6 @@ module Tugo
     module V1
       module ContactService
         class Service
-
           include ::GRPC::GenericService
 
           self.marshal_class_method = :encode
@@ -21,17 +20,21 @@ module Tugo
           # --
           rpc :GetContactById, ::Tugo::Contacts::V1::ContactIdRequest, ::Tugo::Contacts::V1::ContactResponse
           # --
-          # cnt_00002 Get Contact By Owner
+          # cnt_00002 Get Contact By Owner Id (Assigned To)
           # --
-          rpc :GetContactByOwner, ::Tugo::Contacts::V1::ContactOwnerIdRequest, ::Tugo::Contacts::V1::ContactListResponse
+          rpc :GetContactsByOwnerId, ::Tugo::Contacts::V1::ContactOwnerIdRequest, ::Tugo::Contacts::V1::ContactsResponse
           # --
-          # cnt_00003 Get List Contacts
+          # cnt_00003 Get Contacts
           # --
-          rpc :GetContactList, ::Google::Protobuf::Empty, ::Tugo::Contacts::V1::ContactListResponse
+          rpc :GetContacts, ::Google::Protobuf::Empty, ::Tugo::Contacts::V1::ContactsResponse
           # --
           # cnt_00004 Upsert Contact
           # --
           rpc :UpsertContact, ::Tugo::Contacts::V1::UpsertContactRequest, ::Tugo::Contacts::V1::UpsertContactResponse
+          # --
+          # cnt_00005 Upsert Contacts
+          # --
+          rpc :UpsertContacts, ::Tugo::Contacts::V1::UpsertContactsRequest, ::Tugo::Contacts::V1::UpsertContactsResponse
         end
 
         Stub = Service.rpc_stub_class

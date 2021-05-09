@@ -9,14 +9,35 @@ module Tugo
     module V1
       module CampaignService
         class Service
-
           include ::GRPC::GenericService
 
           self.marshal_class_method = :encode
           self.unmarshal_class_method = :decode
           self.service_name = 'tugo.campaigns.v1.CampaignService'
 
-          rpc :GetCampaignList, ::Google::Protobuf::Empty, ::Tugo::Campaigns::V1::CampaignListResponse
+          # --
+          # cmp_00001 Get Campaign By Id
+          # --
+          rpc :GetCampaignById, ::Tugo::Campaigns::V1::CampaignIdRequest, ::Tugo::Campaigns::V1::CampaignResponse
+          # --
+          # cmp_00002 Get Campaign By Owner Id (Assigned To)
+          # --
+          rpc :GetCampaignsByOwnerId, ::Tugo::Campaigns::V1::CampaignOwnerIdRequest,
+              ::Tugo::Campaigns::V1::CampaignsResponse
+          # --
+          # cmp_00003 Get Campaigns
+          # --
+          rpc :GetCampaigns, ::Google::Protobuf::Empty, ::Tugo::Campaigns::V1::CampaignsResponse
+          # --
+          # cmp_00004 Upsert Campaign
+          # --
+          rpc :UpsertCampaign, ::Tugo::Campaigns::V1::UpsertCampaignRequest,
+              ::Tugo::Campaigns::V1::UpsertCampaignResponse
+          # --
+          # cmp_00005 Upsert Campaigns
+          # --
+          rpc :UpsertCampaigns, ::Tugo::Campaigns::V1::UpsertCampaignsRequest,
+              ::Tugo::Campaigns::V1::UpsertCampaignsResponse
         end
 
         Stub = Service.rpc_stub_class

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   namespace :leads do
     namespace :v1 do
-      resources :leads, only: %i[index]
+      resources :leads, only: %i[index create]
     end
   end
 

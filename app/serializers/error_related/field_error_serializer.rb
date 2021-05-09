@@ -5,4 +5,3 @@ module ErrorRelated
     attributes :field_name, :field_messages
   end
 end
-  

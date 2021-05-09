@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
-class Leads::V1::LeadsController < ApplicationController
+class Leads::V1::LeadsController < ApplicationApiController
   def index
-    result = TugoCommon::GrpcService.call_grpc(
-      nil,
-      Settings.leads.host,
-      Tugo::Leads::V1::LeadService,
-      :GetLeadList
-    ).message
+    render json: { 'contacts': Settings.leads.host }, status: 200
+  end
 
-    render json: result, status: 200
+  def create
+    request_params = Leads::UpsertLeadRequestParams.new(params)
+    request_params.validate!
+    service = Leads::UpsertLeadService.new(request_params, nil)
+    service.run!
+    render json: service.result, serializer: Leads::UpsertLeadSerializer, status: 200
   end
 end

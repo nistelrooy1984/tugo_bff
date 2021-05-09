@@ -4,18 +4,55 @@
 require 'google/protobuf'
 
 require 'google/protobuf/empty_pb'
+require 'google/protobuf/wrappers_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_file("tugo/campaigns/v1/campaign.proto", :syntax => :proto3) do
-    add_message "tugo.campaigns.v1.CampaignListResponse" do
-      repeated :campaigns, :message, 1, "tugo.campaigns.v1.Campaign"
+  add_file('tugo/campaigns/v1/campaign.proto', syntax: :proto3) do
+    add_message 'tugo.campaigns.v1.CampaignIdRequest' do
+      optional :campaign_id, :message, 1, 'google.protobuf.Int64Value'
     end
-    add_message "tugo.campaigns.v1.Campaign" do
-      optional :id, :int64, 1
-      optional :campaign_name, :string, 2
-      optional :campaign_type, :int32, 3
-      optional :campaign_status, :int32, 4
-      optional :expected_revenue, :int64, 5
-      optional :closing_date, :string, 6
+    add_message 'tugo.campaigns.v1.CampaignResponse' do
+      optional :campaign, :message, 1, 'tugo.campaigns.v1.Campaign'
+    end
+    add_message 'tugo.campaigns.v1.CampaignOwnerIdRequest' do
+      optional :campaign_owner_id, :message, 1, 'google.protobuf.Int64Value'
+    end
+    add_message 'tugo.campaigns.v1.CampaignsResponse' do
+      repeated :campaigns, :message, 1, 'tugo.campaigns.v1.Campaign'
+    end
+    add_message 'tugo.campaigns.v1.UpsertCampaignRequest' do
+      optional :campaign, :message, 1, 'tugo.campaigns.v1.Campaign'
+    end
+    add_message 'tugo.campaigns.v1.UpsertCampaignResponse' do
+      optional :campaign, :message, 1, 'tugo.campaigns.v1.Campaign'
+    end
+    add_message 'tugo.campaigns.v1.UpsertCampaignsRequest' do
+      repeated :campaigns, :message, 1, 'tugo.campaigns.v1.Campaign'
+    end
+    add_message 'tugo.campaigns.v1.UpsertCampaignsResponse' do
+      repeated :campaigns, :message, 1, 'tugo.campaigns.v1.Campaign'
+    end
+    add_message 'tugo.campaigns.v1.Campaign' do
+      optional :id, :message, 1, 'google.protobuf.Int64Value'
+      optional :campaign_name, :message, 2, 'google.protobuf.StringValue'
+      optional :expected_close_date, :message, 3, 'google.protobuf.StringValue'
+      optional :master_status_id, :message, 4, 'google.protobuf.Int64Value'
+      optional :master_campaign_type, :message, 5, 'google.protobuf.Int64Value'
+      optional :budget_cost, :message, 6, 'google.protobuf.FloatValue'
+      optional :actual_cost, :message, 7, 'google.protobuf.FloatValue'
+      optional :expected_revenue, :message, 8, 'google.protobuf.DoubleValue'
+      optional :master_expected_response_id, :message, 9, 'google.protobuf.Int64Value'
+      optional :expected_sales_count, :message, 10, 'google.protobuf.Int64Value'
+      optional :actual_sales_count, :message, 11, 'google.protobuf.Int64Value'
+      optional :expected_response_count, :message, 12, 'google.protobuf.Int64Value'
+      optional :actual_response_count, :message, 13, 'google.protobuf.Int64Value'
+      optional :expected_roi, :message, 14, 'google.protobuf.FloatValue'
+      optional :actual_roi, :message, 15, 'google.protobuf.FloatValue'
+      optional :description, :message, 16, 'google.protobuf.StringValue'
+      optional :creator_id, :message, 17, 'google.protobuf.Int64Value'
+      optional :owner_id, :message, 18, 'google.protobuf.Int64Value'
+      optional :modified_by_id, :message, 19, 'google.protobuf.Int64Value'
+      optional :created_at, :message, 20, 'google.protobuf.StringValue'
+      optional :updated_at, :message, 21, 'google.protobuf.StringValue'
     end
   end
 end
@@ -23,8 +60,15 @@ end
 module Tugo
   module Campaigns
     module V1
-      CampaignListResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.campaigns.v1.CampaignListResponse").msgclass
-      Campaign = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.campaigns.v1.Campaign").msgclass
+      CampaignIdRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.campaigns.v1.CampaignIdRequest').msgclass
+      CampaignResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.campaigns.v1.CampaignResponse').msgclass
+      CampaignOwnerIdRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.campaigns.v1.CampaignOwnerIdRequest').msgclass
+      CampaignsResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.campaigns.v1.CampaignsResponse').msgclass
+      UpsertCampaignRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.campaigns.v1.UpsertCampaignRequest').msgclass
+      UpsertCampaignResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.campaigns.v1.UpsertCampaignResponse').msgclass
+      UpsertCampaignsRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.campaigns.v1.UpsertCampaignsRequest').msgclass
+      UpsertCampaignsResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.campaigns.v1.UpsertCampaignsResponse').msgclass
+      Campaign = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.campaigns.v1.Campaign').msgclass
     end
   end
 end

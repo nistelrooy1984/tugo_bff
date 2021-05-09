@@ -4,43 +4,54 @@
 require 'google/protobuf'
 
 require 'google/protobuf/empty_pb'
+require 'google/protobuf/wrappers_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_file("tugo/contacts/v1/contact.proto", :syntax => :proto3) do
-    add_message "tugo.contacts.v1.ContactIdRequest" do
-      optional :contact_id, :int64, 1
+  add_file('tugo/contacts/v1/contact.proto', syntax: :proto3) do
+    add_message 'tugo.contacts.v1.ContactIdRequest' do
+      optional :contact_id, :message, 1, 'google.protobuf.Int64Value'
     end
-    add_message "tugo.contacts.v1.ContactOwnerIdRequest" do
-      optional :contact_owner_id, :int64, 1
+    add_message 'tugo.contacts.v1.ContactResponse' do
+      optional :contact, :message, 1, 'tugo.contacts.v1.Contact'
     end
-    add_message "tugo.contacts.v1.UpsertContactRequest" do
-      optional :contact, :message, 1, "tugo.contacts.v1.Contact"
+    add_message 'tugo.contacts.v1.ContactOwnerIdRequest' do
+      optional :contact_owner_id, :message, 1, 'google.protobuf.Int64Value'
     end
-    add_message "tugo.contacts.v1.ContactResponse" do
-      optional :contact, :message, 1, "tugo.contacts.v1.Contact"
+    add_message 'tugo.contacts.v1.ContactsResponse' do
+      repeated :contacts, :message, 1, 'tugo.contacts.v1.Contact'
     end
-    add_message "tugo.contacts.v1.ContactListResponse" do
-      repeated :contacts, :message, 1, "tugo.contacts.v1.Contact"
+    add_message 'tugo.contacts.v1.UpsertContactRequest' do
+      optional :contact, :message, 1, 'tugo.contacts.v1.Contact'
     end
-    add_message "tugo.contacts.v1.UpsertContactResponse" do
-      optional :contact, :message, 1, "tugo.contacts.v1.Contact"
+    add_message 'tugo.contacts.v1.UpsertContactResponse' do
+      optional :contact, :message, 1, 'tugo.contacts.v1.Contact'
     end
-    add_message "tugo.contacts.v1.Contact" do
-      optional :id, :int64, 1
-      optional :first_name, :string, 2
-      optional :last_name, :string, 3
-      optional :email, :string, 4
-      optional :phone, :string, 5
-      optional :title, :string, 6
-      optional :creator_id, :int64, 7
-      optional :owner_id, :int64, 8
-      optional :modified_by_id, :int64, 9
-      optional :master_leadsource_id, :int64, 10
-      optional :is_converted_from_lead, :bool, 11
-      optional :is_do_not_call, :bool, 12
-      optional :source, :string, 13
-      optional :description, :string, 14
-      optional :created_at, :string, 15
-      optional :updated_at, :string, 16
+    add_message 'tugo.contacts.v1.UpsertContactsRequest' do
+      repeated :contacts, :message, 1, 'tugo.contacts.v1.Contact'
+    end
+    add_message 'tugo.contacts.v1.UpsertContactsResponse' do
+      repeated :contacts, :message, 1, 'tugo.contacts.v1.Contact'
+    end
+    add_message 'tugo.contacts.v1.Contact' do
+      optional :id, :message, 1, 'google.protobuf.Int64Value'
+      optional :first_name, :message, 2, 'google.protobuf.StringValue'
+      optional :last_name, :message, 3, 'google.protobuf.StringValue'
+      optional :phone, :message, 4, 'google.protobuf.StringValue'
+      optional :email, :message, 5, 'google.protobuf.StringValue'
+      optional :master_status_id, :message, 6, 'google.protobuf.Int64Value'
+      optional :master_leadsource_id, :message, 7, 'google.protobuf.Int64Value'
+      optional :is_converted_from_lead, :message, 8, 'google.protobuf.BoolValue'
+      optional :is_do_not_call, :message, 9, 'google.protobuf.BoolValue'
+      optional :address, :message, 10, 'google.protobuf.StringValue'
+      optional :master_ward_id, :message, 11, 'google.protobuf.Int64Value'
+      optional :master_district_id, :message, 12, 'google.protobuf.Int64Value'
+      optional :master_province_id, :message, 13, 'google.protobuf.Int64Value'
+      optional :master_country_id, :message, 14, 'google.protobuf.Int64Value'
+      optional :description, :message, 15, 'google.protobuf.StringValue'
+      optional :creator_id, :message, 16, 'google.protobuf.Int64Value'
+      optional :owner_id, :message, 17, 'google.protobuf.Int64Value'
+      optional :modified_by_id, :message, 18, 'google.protobuf.Int64Value'
+      optional :created_at, :message, 19, 'google.protobuf.StringValue'
+      optional :updated_at, :message, 20, 'google.protobuf.StringValue'
     end
   end
 end
@@ -48,13 +59,15 @@ end
 module Tugo
   module Contacts
     module V1
-      ContactIdRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.contacts.v1.ContactIdRequest").msgclass
-      ContactOwnerIdRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.contacts.v1.ContactOwnerIdRequest").msgclass
-      UpsertContactRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.contacts.v1.UpsertContactRequest").msgclass
-      ContactResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.contacts.v1.ContactResponse").msgclass
-      ContactListResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.contacts.v1.ContactListResponse").msgclass
-      UpsertContactResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.contacts.v1.UpsertContactResponse").msgclass
-      Contact = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.contacts.v1.Contact").msgclass
+      ContactIdRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.contacts.v1.ContactIdRequest').msgclass
+      ContactResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.contacts.v1.ContactResponse').msgclass
+      ContactOwnerIdRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.contacts.v1.ContactOwnerIdRequest').msgclass
+      ContactsResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.contacts.v1.ContactsResponse').msgclass
+      UpsertContactRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.contacts.v1.UpsertContactRequest').msgclass
+      UpsertContactResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.contacts.v1.UpsertContactResponse').msgclass
+      UpsertContactsRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.contacts.v1.UpsertContactsRequest').msgclass
+      UpsertContactsResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.contacts.v1.UpsertContactsResponse').msgclass
+      Contact = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.contacts.v1.Contact').msgclass
     end
   end
 end

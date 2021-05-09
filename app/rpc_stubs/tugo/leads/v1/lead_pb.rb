@@ -4,19 +4,54 @@
 require 'google/protobuf'
 
 require 'google/protobuf/empty_pb'
+require 'google/protobuf/wrappers_pb'
 Google::Protobuf::DescriptorPool.generated_pool.build do
-  add_file("tugo/leads/v1/lead.proto", :syntax => :proto3) do
-    add_message "tugo.leads.v1.LeadListResponse" do
-      repeated :leads, :message, 1, "tugo.leads.v1.Lead"
+  add_file('tugo/leads/v1/lead.proto', syntax: :proto3) do
+    add_message 'tugo.leads.v1.LeadIdRequest' do
+      optional :lead_id, :message, 1, 'google.protobuf.Int64Value'
     end
-    add_message "tugo.leads.v1.Lead" do
-      optional :id, :int64, 1
-      optional :lead_no, :string, 2
-      optional :last_name, :string, 3
-      optional :first_name, :string, 4
-      optional :phone, :string, 5
-      optional :email, :string, 6
-      optional :gender, :int32, 7
+    add_message 'tugo.leads.v1.LeadResponse' do
+      optional :lead, :message, 1, 'tugo.leads.v1.Lead'
+    end
+    add_message 'tugo.leads.v1.LeadOwnerIdRequest' do
+      optional :owner_id, :message, 1, 'google.protobuf.Int64Value'
+    end
+    add_message 'tugo.leads.v1.LeadsResponse' do
+      repeated :leads, :message, 1, 'tugo.leads.v1.Lead'
+    end
+    add_message 'tugo.leads.v1.UpsertLeadRequest' do
+      optional :lead, :message, 1, 'tugo.leads.v1.Lead'
+    end
+    add_message 'tugo.leads.v1.UpsertLeadResponse' do
+      optional :lead, :message, 1, 'tugo.leads.v1.Lead'
+    end
+    add_message 'tugo.leads.v1.UpsertLeadsRequest' do
+      repeated :leads, :message, 1, 'tugo.leads.v1.Lead'
+    end
+    add_message 'tugo.leads.v1.UpsertLeadsResponse' do
+      repeated :leads, :message, 1, 'tugo.leads.v1.Lead'
+    end
+    add_message 'tugo.leads.v1.Lead' do
+      optional :id, :message, 1, 'google.protobuf.Int64Value'
+      optional :first_name, :message, 2, 'google.protobuf.StringValue'
+      optional :last_name, :message, 3, 'google.protobuf.StringValue'
+      optional :phone, :message, 4, 'google.protobuf.StringValue'
+      optional :email, :message, 5, 'google.protobuf.StringValue'
+      optional :master_status_id, :message, 6, 'google.protobuf.Int64Value'
+      optional :master_lead_source_id, :message, 7, 'google.protobuf.Int64Value'
+      optional :master_industry_id, :message, 8, 'google.protobuf.Int64Value'
+      optional :master_rating_id, :message, 9, 'google.protobuf.Int64Value'
+      optional :address, :message, 10, 'google.protobuf.StringValue'
+      optional :master_ward_id, :message, 11, 'google.protobuf.Int64Value'
+      optional :master_district_id, :message, 12, 'google.protobuf.Int64Value'
+      optional :master_province_id, :message, 13, 'google.protobuf.Int64Value'
+      optional :master_country_id, :message, 14, 'google.protobuf.Int64Value'
+      optional :description, :message, 15, 'google.protobuf.StringValue'
+      optional :creator_id, :message, 16, 'google.protobuf.Int64Value'
+      optional :owner_id, :message, 17, 'google.protobuf.Int64Value'
+      optional :modified_by_id, :message, 18, 'google.protobuf.Int64Value'
+      optional :created_at, :message, 19, 'google.protobuf.StringValue'
+      optional :updated_at, :message, 20, 'google.protobuf.StringValue'
     end
   end
 end
@@ -24,8 +59,15 @@ end
 module Tugo
   module Leads
     module V1
-      LeadListResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.leads.v1.LeadListResponse").msgclass
-      Lead = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.leads.v1.Lead").msgclass
+      LeadIdRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.leads.v1.LeadIdRequest').msgclass
+      LeadResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.leads.v1.LeadResponse').msgclass
+      LeadOwnerIdRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.leads.v1.LeadOwnerIdRequest').msgclass
+      LeadsResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.leads.v1.LeadsResponse').msgclass
+      UpsertLeadRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.leads.v1.UpsertLeadRequest').msgclass
+      UpsertLeadResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.leads.v1.UpsertLeadResponse').msgclass
+      UpsertLeadsRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.leads.v1.UpsertLeadsRequest').msgclass
+      UpsertLeadsResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.leads.v1.UpsertLeadsResponse').msgclass
+      Lead = ::Google::Protobuf::DescriptorPool.generated_pool.lookup('tugo.leads.v1.Lead').msgclass
     end
   end
 end

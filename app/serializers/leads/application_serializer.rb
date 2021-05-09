@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Contacts
+module Leads
   class ApplicationSerializer < ActiveModel::Serializer
     private
 

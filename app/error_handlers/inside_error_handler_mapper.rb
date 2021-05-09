@@ -2,7 +2,7 @@
 
 module InsideErrorHandlerMapper
   HANDLER_MAP = {
-    TugoCommon::RequestParamsBase::InvalidRequestParams => InsideError::InvalidRequestParamsErrorHandler,
+    TugoCommon::RequestParamsBase::InvalidRequestParams => InsideError::InvalidRequestParamsErrorHandler
   }.freeze
 
   def self.get_handler(exception)

@@ -9,14 +9,36 @@ module Tugo
     module V1
       module OrganizationService
         class Service
-
           include ::GRPC::GenericService
 
           self.marshal_class_method = :encode
           self.unmarshal_class_method = :decode
           self.service_name = 'tugo.organizations.v1.OrganizationService'
 
-          rpc :GetOrganizationList, ::Google::Protobuf::Empty, ::Tugo::Organizations::V1::OrganizationListResponse
+          # --
+          # org_00001 Get Organization By Id
+          # --
+          rpc :GetOrganizationById, ::Tugo::Organizations::V1::OrganizationIdRequest,
+              ::Tugo::Organizations::V1::OrganizationResponse
+          # --
+          # org_00002 Get Organizations By Owner Id (Assigned To)
+          # --
+          rpc :GetOrganizationsByOwnerId, ::Tugo::Organizations::V1::OrganizationOwnerIdRequest,
+              ::Tugo::Organizations::V1::OrganizationsResponse
+          # --
+          # org_00003 Get Organizations
+          # --
+          rpc :GetOrganizations, ::Google::Protobuf::Empty, ::Tugo::Organizations::V1::OrganizationsResponse
+          # --
+          # org_00004 Upsert Organization
+          # --
+          rpc :UpsertOrganization, ::Tugo::Organizations::V1::UpsertOrganizationRequest,
+              ::Tugo::Organizations::V1::UpsertOrganizationResponse
+          # --
+          # org_00005 Upsert Organizations
+          # --
+          rpc :UpsertOrganizations, ::Tugo::Organizations::V1::UpsertOrganizationsRequest,
+              ::Tugo::Organizations::V1::UpsertOrganizationsResponse
         end
 
         Stub = Service.rpc_stub_class
