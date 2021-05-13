@@ -2,6 +2,8 @@
 
 module Leads
   class ServiceBase
+    include Leads::Concerns::ProtoGeneratable
+
     def initialize
       raise NotImplementedError
     end

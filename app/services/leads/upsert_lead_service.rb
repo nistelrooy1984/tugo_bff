@@ -12,24 +12,24 @@ module Leads
     def run!
       upsert_lead_request_params = Tugo::Leads::V1::UpsertLeadRequest.new(
         lead: Tugo::Leads::V1::Lead.new(
-          id: Google::Protobuf::Int64Value.new(value: @request_params.id),
-          first_name: Google::Protobuf::StringValue.new(value: @request_params.first_name),
-          last_name: Google::Protobuf::StringValue.new(value: @request_params.last_name),
-          phone: Google::Protobuf::StringValue.new(value: @request_params.phone),
-          email: Google::Protobuf::StringValue.new(value: @request_params.email),
-          master_status_id: Google::Protobuf::Int64Value.new(value: @request_params.master_status_id),
-          master_lead_source_id: Google::Protobuf::Int64Value.new(value: @request_params.master_lead_source_id),
-          master_industry_id: Google::Protobuf::Int64Value.new(value: @request_params.master_industry_id),
-          master_rating_id: Google::Protobuf::Int64Value.new(value: @request_params.master_rating_id),
-          address: Google::Protobuf::StringValue.new(value: @request_params.address),
-          master_ward_id: Google::Protobuf::Int64Value.new(value: @request_params.master_ward_id),
-          master_district_id: Google::Protobuf::Int64Value.new(value: @request_params.master_district_id),
-          master_province_id: Google::Protobuf::Int64Value.new(value: @request_params.master_province_id),
-          master_country_id: Google::Protobuf::Int64Value.new(value: @request_params.master_country_id),
-          description: Google::Protobuf::StringValue.new(value: @request_params.description),
-          creator_id: Google::Protobuf::Int64Value.new(value: @request_params.creator_id),
-          owner_id: Google::Protobuf::Int64Value.new(value: @request_params.owner_id),
-          modified_by_id: Google::Protobuf::Int64Value.new(value: @request_params.modified_by_id)
+          id: proto_int64(@request_params.id),
+          first_name: proto_string(@request_params.first_name),
+          last_name: proto_string(@request_params.last_name),
+          phone: proto_string(@request_params.phone),
+          email: proto_string(@request_params.email),
+          master_status_id: proto_int64(@request_params.master_status_id),
+          master_lead_source_id: proto_int64(@request_params.master_lead_source_id),
+          master_industry_id: proto_int64(@request_params.master_industry_id),
+          master_rating_id: proto_int64(@request_params.master_rating_id),
+          address: proto_string(@request_params.address),
+          master_ward_id: proto_int64(@request_params.master_ward_id),
+          master_district_id: proto_int64(@request_params.master_district_id),
+          master_province_id: proto_int64(@request_params.master_province_id),
+          master_country_id: proto_int64(@request_params.master_country_id),
+          description: proto_string(@request_params.description),
+          creator_id: proto_int64(@request_params.creator_id),
+          owner_id: proto_int64(@request_params.owner_id),
+          modified_by_id: proto_int64(@request_params.modified_by_id)
         )
       )
 
