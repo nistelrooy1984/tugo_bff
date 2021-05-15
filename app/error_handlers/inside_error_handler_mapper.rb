@@ -2,7 +2,9 @@
 
 module InsideErrorHandlerMapper
   HANDLER_MAP = {
-    TugoCommon::RequestParamsBase::InvalidRequestParams => InsideError::InvalidRequestParamsErrorHandler
+    TugoCommon::RequestParamsBase::InvalidRequestParams => InsideError::InvalidRequestParamsErrorHandler,
+    Gruf::Client::Errors::InvalidArgument => InsideError::GrpcInvalidArgumentErrorHandler,
+    Gruf::Client::Errors::NotFound => InsideError::GrpcNotFoundErrorHandler
   }.freeze
 
   def self.get_handler(exception)

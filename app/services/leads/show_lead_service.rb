@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Leads
-  class UpsertLeadService < Leads::ServiceBase
+  class ShowLeadService < Leads::ServiceBase
     attr_reader :result
 
     def initialize(request_params, auth_header)
@@ -10,35 +10,16 @@ module Leads
     end
 
     def run!
-      upsert_lead_request = Tugo::Leads::V1::UpsertLeadRequest.new(
-        lead: Tugo::Leads::V1::Lead.new(
-          id: proto_int64(@request_params.id),
-          first_name: proto_string(@request_params.first_name),
-          last_name: proto_string(@request_params.last_name),
-          phone: proto_string(@request_params.phone),
-          email: proto_string(@request_params.email),
-          master_status_id: proto_int64(@request_params.master_status_id),
-          master_lead_source_id: proto_int64(@request_params.master_lead_source_id),
-          master_industry_id: proto_int64(@request_params.master_industry_id),
-          master_rating_id: proto_int64(@request_params.master_rating_id),
-          address: proto_string(@request_params.address),
-          master_ward_id: proto_int64(@request_params.master_ward_id),
-          master_district_id: proto_int64(@request_params.master_district_id),
-          master_province_id: proto_int64(@request_params.master_province_id),
-          master_country_id: proto_int64(@request_params.master_country_id),
-          description: proto_string(@request_params.description),
-          creator_id: proto_int64(@request_params.creator_id),
-          owner_id: proto_int64(@request_params.owner_id),
-          modified_by_id: proto_int64(@request_params.modified_by_id)
-        )
+      lead_id_request = Tugo::Leads::V1::LeadIdRequest.new(
+        lead_id: proto_int64(@request_params.id)
       )
 
       response = TugoCommon::GrpcService.call_grpc(
         nil,
         Settings.leads.host,
         Tugo::Leads::V1::LeadService,
-        :UpsertLead,
-        upsert_lead_request.to_h
+        :GetLeadById,
+        lead_id_request.to_h
       ).message
 
       set_result(response.lead)
