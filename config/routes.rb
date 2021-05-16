@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   namespace :leads do
     namespace :v1 do
       resources :leads, only: %i[index create show]
+      get '/leads_assigned_to', to: 'leads#assigned_to'
     end
   end
 
