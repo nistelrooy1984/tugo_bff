@@ -42,6 +42,5 @@ module Leads
              :modified_by_id,
              :created_at,
              :updated_at, to: :object
-
   end
 end

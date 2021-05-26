@@ -30,4 +30,12 @@ class Leads::V1::LeadsController < ApplicationApiController
     service.run!
     render json: service.result, serializer: Leads::LeadSerializer, status: 200
   end
+
+  def upsert
+    request_params = Leads::UpsertLeadsRequestParams.new(params)
+    request_params.validate!
+    service = Leads::UpsertLeadsService.new(request_params, nil)
+    service.run!
+    render json: service.results, serializer: Leads::LeadsSerializer, status: 200
+  end
 end
