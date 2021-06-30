@@ -2,6 +2,8 @@
 
 module Contacts
   class ServiceBase
+    include Contacts::Concerns::ProtoGeneratable
+
     def initialize
       raise NotImplementedError
     end

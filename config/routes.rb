@@ -14,7 +14,11 @@ Rails.application.routes.draw do
 
   namespace :contacts do
     namespace :v1 do
-      resources :contacts, only: %i[index create show]
+      resources :contacts, only: %i[index create show] do
+        collection do
+          get :assigned_to
+        end
+      end
     end
   end
 
