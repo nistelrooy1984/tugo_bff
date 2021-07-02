@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Contacts
-  class ContactSerializer < ApplicationSerializer
+  class ContactSerializer < ActiveModel::Serializer
     attributes :id,
                :first_name,
                :last_name,
