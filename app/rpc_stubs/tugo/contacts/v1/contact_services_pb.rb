@@ -9,6 +9,7 @@ module Tugo
     module V1
       module ContactService
         class Service
+
           include ::GRPC::GenericService
 
           self.marshal_class_method = :encode
