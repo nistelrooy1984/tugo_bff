@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       resources :contacts, only: %i[index create] do
         collection do
           get :assigned_to
+          post :upsert
         end
       end
     end
