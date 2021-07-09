@@ -14,7 +14,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :contact, :message, 1, "tugo.contacts.v1.Contact"
     end
     add_message "tugo.contacts.v1.ContactOwnerIdRequest" do
-      optional :contact_owner_id, :message, 1, "google.protobuf.Int64Value"
+      optional :owner_id, :message, 1, "google.protobuf.Int64Value"
     end
     add_message "tugo.contacts.v1.ContactsResponse" do
       repeated :contacts, :message, 1, "tugo.contacts.v1.Contact"

@@ -20,4 +20,12 @@ class Contacts::V1::ContactsController < ApplicationApiController
     service.run!
     render json: service.result, serializer: Contacts::UpsertContactSerializer, status: 200
   end
+
+  def assigned_to
+    request_params = Contacts::AssignedToRequestParams.new(params)
+    request_params.validate!
+    service = Contacts::AssignedToService.new(request_params, nil)
+    service.run!
+    render json: service.results, serializer: Contacts::ContactsSerializer, status: 200
+  end
 end
