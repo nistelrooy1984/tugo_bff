@@ -38,4 +38,10 @@ class Leads::V1::LeadsController < ApplicationApiController
     service.run!
     render json: service.results, serializer: Leads::LeadsSerializer, status: 200
   end
+
+  def get_all_master
+    service = Leads::GetAllMasterService.new(nil)
+    service.run!
+    render json: service.results, each_serializer: Leads::GetAllMasterSerializer, status: 200
+  end
 end

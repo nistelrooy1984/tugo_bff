@@ -28,6 +28,7 @@ Rails.application.routes.draw do
         collection do
           get :assigned_to
           post :upsert
+          get :get_all_master
         end
       end
     end
