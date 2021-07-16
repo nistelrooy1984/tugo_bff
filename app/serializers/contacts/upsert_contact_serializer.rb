@@ -19,61 +19,33 @@ module Contacts
     attribute :created_at
     attribute :updated_at
 
-    def id
-      object.id
-    end
+    delegate :id, to: :object
 
-    def first_name
-      object.first_name
-    end
+    delegate :first_name, to: :object
 
-    def last_name
-      object.last_name
-    end
+    delegate :last_name, to: :object
 
-    def email
-      object.email
-    end
+    delegate :email, to: :object
 
-    def phone
-      object.phone
-    end
+    delegate :phone, to: :object
 
-    def title
-      object.title
-    end
+    delegate :title, to: :object
 
-    def creator_id
-      object.creator_id
-    end
+    delegate :creator_id, to: :object
 
-    def owner_id
-      object.owner_id
-    end
+    delegate :owner_id, to: :object
 
-    def modified_by_id
-      object.modified_by_id
-    end
+    delegate :modified_by_id, to: :object
 
-    def master_leadsource_id
-      object.master_leadsource_id
-    end
+    delegate :master_leadsource_id, to: :object
 
-    def is_converted_from_lead
-      object.is_converted_from_lead
-    end
+    delegate :is_converted_from_lead, to: :object
 
-    def is_do_not_call
-      object.is_do_not_call
-    end
+    delegate :is_do_not_call, to: :object
 
-    def source
-      object.source
-    end
+    delegate :source, to: :object
 
-    def description
-      object.description
-    end
+    delegate :description, to: :object
 
     def created_at
       Time.zone.parse(object.created_at).rfc3339

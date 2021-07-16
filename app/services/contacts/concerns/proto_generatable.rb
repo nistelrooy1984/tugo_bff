@@ -63,4 +63,3 @@ module Contacts
     end
   end
 end
-  

@@ -11,11 +11,11 @@ module InsideError
     def model
       messages = []
       field_errors_h = @exception.error['field_errors']
-      field_errors = field_errors_h.group_by { |field_error| field_error['field_name'] }.map do |name, errors|
-        ErrorRelated::FieldError.new(field_name: name, field_messages: errors.map do |error_h|
+      field_errors = field_errors_h.group_by { |field_error| field_error['field_name'] }.map { |name, errors|
+        ErrorRelated::FieldError.new(field_name: name, field_messages: errors.map { |error_h|
                                                                          error_h['message']
-                                                                       end.flatten)
-      end
+                                                                       }.flatten)
+      }
       ErrorRelated::ErrorResponse.new(messages: messages, field_errors: field_errors)
     end
 

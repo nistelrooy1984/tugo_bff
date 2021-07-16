@@ -1,10 +1,14 @@
+# frozen_string_literal: true
+
 module Contacts
   class AssignedToService < Contacts::ServiceBase
     attr_reader :results
 
     def initialize(request_params, auth_header)
-      @request_params = request_params
-      @auth_header = auth_header
+      super(
+        @request_params = request_params,
+        @auth_header = auth_header
+      )
     end
 
     def run!
@@ -23,6 +27,8 @@ module Contacts
       set_results(responses.contacts)
     end
 
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/PerceivedComplexity
     def set_results(contacts)
       @results = Contacts::ContactsModel.new(
         contacts: contacts.each_with_object([]) do |contact, arr|
@@ -42,10 +48,12 @@ module Contacts
             source: contact.source&.value,
             description: contact.description&.value,
             created_at: contact.created_at&.value,
-            updated_at: contact.updated_at&.value          
+            updated_at: contact.updated_at&.value
           )
         end
       )
-    end    
+    end
+    # rubocop:enable Metrics/PerceivedComplexity
+    # rubocop:enable Metrics/CyclomaticComplexity
   end
 end

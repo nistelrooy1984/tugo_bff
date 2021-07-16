@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Contacts
   class ContactsSerializer < ActiveModel::Serializer
     attributes :contacts
-    
+
     delegate to: :object
 
     def contacts

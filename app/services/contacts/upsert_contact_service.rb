@@ -5,8 +5,10 @@ module Contacts
     attr_reader :result
 
     def initialize(request_params, auth_header)
-      @request_params = request_params
-      @auth_header = auth_header
+      super(
+        @request_params = request_params,
+        @auth_header = auth_header
+      )
     end
 
     def run!

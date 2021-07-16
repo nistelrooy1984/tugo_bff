@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :campaigns do
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
 
   namespace :common do
     namespace :v1 do
-      resources :employees, only: %i[index]
+      resources :roles, only: %i[index show create]
     end
   end
 

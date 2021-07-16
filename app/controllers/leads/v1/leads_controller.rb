@@ -4,7 +4,7 @@ class Leads::V1::LeadsController < ApplicationApiController
   def index
     service = Leads::GetLeadsService.new(nil)
     service.run!
-    render json: service.results, serializer: Leads::LeadsSerializer, status: 200
+    render json: service.results, serializer: Leads::LeadsSerializer, status: :ok
   end
 
   def show
@@ -12,7 +12,7 @@ class Leads::V1::LeadsController < ApplicationApiController
     request_params.validate!
     service = Leads::ShowLeadService.new(request_params, nil)
     service.run!
-    render json: service.result, serializer: Leads::LeadSerializer, status: 200
+    render json: service.result, serializer: Leads::LeadSerializer, status: :ok
   end
 
   def assigned_to
@@ -20,7 +20,7 @@ class Leads::V1::LeadsController < ApplicationApiController
     request_params.validate!
     service = Leads::AssignedToService.new(request_params, nil)
     service.run!
-    render json: service.results, serializer: Leads::LeadsSerializer, status: 200
+    render json: service.results, serializer: Leads::LeadsSerializer, status: :ok
   end
 
   def create
@@ -28,7 +28,7 @@ class Leads::V1::LeadsController < ApplicationApiController
     request_params.validate!
     service = Leads::UpsertLeadService.new(request_params, nil)
     service.run!
-    render json: service.result, serializer: Leads::LeadSerializer, status: 200
+    render json: service.result, serializer: Leads::LeadSerializer, status: :ok
   end
 
   def upsert
@@ -36,6 +36,6 @@ class Leads::V1::LeadsController < ApplicationApiController
     request_params.validate!
     service = Leads::UpsertLeadsService.new(request_params, nil)
     service.run!
-    render json: service.results, serializer: Leads::LeadsSerializer, status: 200
+    render json: service.results, serializer: Leads::LeadsSerializer, status: :ok
   end
 end

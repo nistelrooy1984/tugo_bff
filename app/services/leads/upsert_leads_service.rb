@@ -5,8 +5,10 @@ module Leads
     attr_reader :results
 
     def initialize(request_params, auth_header)
-      @request_params = request_params
-      @auth_header = auth_header
+      super(
+        @request_params = request_params,
+        @auth_header = auth_header
+      )
     end
 
     def run!
@@ -46,6 +48,8 @@ module Leads
       set_results(responses.leads)
     end
 
+    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/PerceivedComplexity
     def set_results(leads)
       @results = Leads::LeadsModel.new(
         leads: leads.each_with_object([]) do |lead, arr|
@@ -74,5 +78,7 @@ module Leads
         end
       )
     end
+    # rubocop:enable Metrics/PerceivedComplexity
+    # rubocop:enable Metrics/CyclomaticComplexity
   end
 end

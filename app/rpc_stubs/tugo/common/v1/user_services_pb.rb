@@ -9,6 +9,7 @@ module Tugo
     module V1
       module UserService
         class Service
+
           include ::GRPC::GenericService
 
           self.marshal_class_method = :encode
@@ -16,9 +17,9 @@ module Tugo
           self.service_name = 'tugo.common.v1.UserService'
 
           # --
-          # cmn_00007 Get User By Id
+          # cmn_00007 Get User By User Name
           # --
-          rpc :GetUserById, ::Tugo::Common::V1::UserIdRequest, ::Tugo::Common::V1::UserResponse
+          rpc :GetUserByUserName, ::Tugo::Common::V1::UserNameRequest, ::Tugo::Common::V1::UserResponse
           # --
           # cmn_00008 Get Users
           # --
@@ -27,6 +28,10 @@ module Tugo
           # cmn_00009 Upsert User
           # --
           rpc :UpsertUser, ::Tugo::Common::V1::UpsertUserRequest, ::Tugo::Common::V1::UpsertUserResponse
+          # --
+          # cmn_00010 User Login
+          # --
+          rpc :UserLogin, ::Tugo::Common::V1::LoginInfoRequest, ::Tugo::Common::V1::UserResponse
         end
 
         Stub = Service.rpc_stub_class

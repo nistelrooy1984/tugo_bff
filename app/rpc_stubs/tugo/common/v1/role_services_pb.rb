@@ -9,6 +9,7 @@ module Tugo
     module V1
       module RoleService
         class Service
+
           include ::GRPC::GenericService
 
           self.marshal_class_method = :encode
@@ -16,15 +17,15 @@ module Tugo
           self.service_name = 'tugo.common.v1.RoleService'
 
           # --
-          # cmn_00004 Get Role By Id
+          # cmn_00001 Get Role By Id
           # --
           rpc :GetRoleById, ::Tugo::Common::V1::RoleIdRequest, ::Tugo::Common::V1::RoleResponse
           # --
-          # cmn_00005 Get Roles
+          # cmn_00002 Get Roles
           # --
           rpc :GetRoles, ::Google::Protobuf::Empty, ::Tugo::Common::V1::RolesResponse
           # --
-          # cmn_00006 Upsert Role
+          # cmn_00003 Upsert Role
           # --
           rpc :UpsertRole, ::Tugo::Common::V1::UpsertRoleRequest, ::Tugo::Common::V1::UpsertRoleResponse
         end
