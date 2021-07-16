@@ -19,6 +19,10 @@ AllCops:
     - 'workspace/**/*'
     - 'spec/factories/*'
 
+Lint/MissingSuper:
+  Exclude:
+    - 'app/services/**/*'
+
 Naming/PredicateName:
   Enabled: false
 

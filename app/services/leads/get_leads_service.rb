@@ -5,9 +5,7 @@ module Leads
     attr_reader :results
 
     def initialize(auth_header)
-      super(
-        @auth_header = auth_header
-      )
+      @auth_header = auth_header
     end
 
     def run!
