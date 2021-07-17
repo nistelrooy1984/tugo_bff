@@ -69,3 +69,6 @@ gem 'tugo_common', '~> 0.1.0', git: 'https://github.com/nistelrooy1984/tugo_comm
 
 gem 'health_check', '~> 3.0'
 gem 'rack-health', '~> 0.1.2'
+
+# An easy way to keep your users' passwords secure.
+gem 'bcrypt', '~> 3.1', '>= 3.1.16'

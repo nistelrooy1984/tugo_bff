@@ -2,6 +2,12 @@
 
 module Leads
   class UpsertLeadsRequestParams < TugoCommon::RequestParamsBase
+    include ::NestedValidatable
+
+    VALIDATE_ATTRIBUTES = %i[
+      leads
+    ].freeze
+
     attribute :leads
 
     validates :leads, presence: true

@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   namespace :common do
     namespace :v1 do
       resources :roles, only: %i[index show create]
+      resources :users, only: %i[create] do
+        collection do
+          get :login
+        end
+      end
     end
   end
 

@@ -25,8 +25,6 @@ module Contacts
       set_results(responses.contacts)
     end
 
-    # rubocop:disable Metrics/CyclomaticComplexity
-    # rubocop:disable Metrics/PerceivedComplexity
     def set_results(contacts)
       @results = Contacts::ContactsModel.new(
         contacts: contacts.each_with_object([]) do |contact, arr|
@@ -51,7 +49,5 @@ module Contacts
         end
       )
     end
-    # rubocop:enable Metrics/PerceivedComplexity
-    # rubocop:enable Metrics/CyclomaticComplexity
   end
 end

@@ -42,8 +42,9 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :is_admin, :message, 11, "google.protobuf.BoolValue"
       optional :modified_by_id, :message, 12, "google.protobuf.Int64Value"
       optional :description, :message, 13, "google.protobuf.StringValue"
-      optional :created_at, :message, 14, "google.protobuf.StringValue"
-      optional :updated_at, :message, 15, "google.protobuf.StringValue"
+      optional :deleted, :message, 14, "google.protobuf.Int64Value"
+      optional :created_at, :message, 15, "google.protobuf.StringValue"
+      optional :updated_at, :message, 16, "google.protobuf.StringValue"
     end
   end
 end

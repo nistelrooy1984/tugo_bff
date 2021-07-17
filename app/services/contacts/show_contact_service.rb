@@ -27,8 +27,6 @@ module Contacts
 
     private
 
-    # rubocop:disable Metrics/CyclomaticComplexity
-    # rubocop:disable Metrics/PerceivedComplexity
     def set_result(contact)
       @result = Contacts::ContactModel.new(
         id: contact.id&.value,
@@ -49,7 +47,5 @@ module Contacts
         updated_at: contact.updated_at&.value
       )
     end
-    # rubocop:enable Metrics/PerceivedComplexity
-    # rubocop:enable Metrics/CyclomaticComplexity
   end
 end
