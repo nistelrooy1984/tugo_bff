@@ -1,5 +1,11 @@
 module Contacts
   class UpsertContactsRequestParams < TugoCommon::RequestParamsBase
+    include ::NestedValidatable
+
+    VALIDATE_ATTRIBUTES = %i[
+      contacts
+    ].freeze
+
     attribute :contacts
 
     validates :contacts, presence: true
