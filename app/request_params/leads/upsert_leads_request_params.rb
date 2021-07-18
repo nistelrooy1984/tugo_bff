@@ -5,7 +5,7 @@ module Leads
     attribute :leads
 
     validates :leads, presence: true
-
+    
     def initialize(params)
       leads = get_leads(params[:leads])
 

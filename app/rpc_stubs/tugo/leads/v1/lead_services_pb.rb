@@ -9,6 +9,7 @@ module Tugo
     module V1
       module LeadService
         class Service
+
           include ::GRPC::GenericService
 
           self.marshal_class_method = :encode
@@ -35,6 +36,10 @@ module Tugo
           # led_00005 Upsert Leads
           # --
           rpc :UpsertLeads, ::Tugo::Leads::V1::UpsertLeadsRequest, ::Tugo::Leads::V1::UpsertLeadsResponse
+          # --
+          # led_00006 Get All Master
+          # --
+          rpc :GetAllMaster, ::Google::Protobuf::Empty, ::Tugo::Leads::V1::AllMasterResponse
         end
 
         Stub = Service.rpc_stub_class
