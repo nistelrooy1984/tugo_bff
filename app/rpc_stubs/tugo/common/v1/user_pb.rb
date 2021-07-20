@@ -10,6 +10,9 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "tugo.common.v1.UserNameRequest" do
       optional :user_name, :message, 1, "google.protobuf.StringValue"
     end
+    add_message "tugo.common.v1.UserIdRequest" do
+      optional :user_id, :message, 1, "google.protobuf.Int64Value"
+    end
     add_message "tugo.common.v1.UserResponse" do
       optional :user, :message, 1, "tugo.common.v1.User"
     end
@@ -53,6 +56,7 @@ module Tugo
   module Common
     module V1
       UserNameRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.common.v1.UserNameRequest").msgclass
+      UserIdRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.common.v1.UserIdRequest").msgclass
       UserResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.common.v1.UserResponse").msgclass
       UsersResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.common.v1.UsersResponse").msgclass
       UpsertUserRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.common.v1.UpsertUserRequest").msgclass

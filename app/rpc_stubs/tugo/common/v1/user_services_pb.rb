@@ -21,6 +21,10 @@ module Tugo
           # --
           rpc :GetUserByUserName, ::Tugo::Common::V1::UserNameRequest, ::Tugo::Common::V1::UserResponse
           # --
+          # cmn_ Get User By User Id
+          # --
+          rpc :GetUserById, ::Tugo::Common::V1::UserIdRequest, ::Tugo::Common::V1::UserResponse
+          # --
           # cmn_00008 Get Users
           # --
           rpc :GetUsers, ::Google::Protobuf::Empty, ::Tugo::Common::V1::UsersResponse
