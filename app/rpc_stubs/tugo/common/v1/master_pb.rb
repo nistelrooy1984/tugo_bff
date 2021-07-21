@@ -21,7 +21,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "tugo.common.v1.Country" do
       optional :id, :message, 1, "google.protobuf.Int64Value"
       optional :name, :message, 2, "google.protobuf.StringValue"
-      optional :code, :message, 3, "google.protobuf.StringValue"
+      optional :code, :message, 3, "google.protobuf.Int64Value"
       optional :code_name, :message, 4, "google.protobuf.StringValue"
       optional :phone_code, :message, 5, "google.protobuf.Int64Value"
       optional :order, :message, 6, "google.protobuf.Int32Value"
@@ -30,7 +30,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "tugo.common.v1.Province" do
       optional :id, :message, 1, "google.protobuf.Int64Value"
       optional :name, :message, 2, "google.protobuf.StringValue"
-      optional :code, :message, 3, "google.protobuf.StringValue"
+      optional :code, :message, 3, "google.protobuf.Int64Value"
       optional :code_name, :message, 4, "google.protobuf.StringValue"
       optional :division_type, :message, 5, "google.protobuf.StringValue"
       optional :phone_code, :message, 6, "google.protobuf.Int64Value"
@@ -41,7 +41,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "tugo.common.v1.District" do
       optional :id, :message, 1, "google.protobuf.Int64Value"
       optional :name, :message, 2, "google.protobuf.StringValue"
-      optional :code, :message, 3, "google.protobuf.StringValue"
+      optional :code, :message, 3, "google.protobuf.Int64Value"
       optional :code_name, :message, 4, "google.protobuf.StringValue"
       optional :division_type, :message, 5, "google.protobuf.StringValue"
       optional :short_code_name, :message, 6, "google.protobuf.StringValue"
@@ -52,7 +52,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "tugo.common.v1.Ward" do
       optional :id, :message, 1, "google.protobuf.Int64Value"
       optional :name, :message, 2, "google.protobuf.StringValue"
-      optional :code, :message, 3, "google.protobuf.StringValue"
+      optional :code, :message, 3, "google.protobuf.Int64Value"
       optional :code_name, :message, 4, "google.protobuf.StringValue"
       optional :division_type, :message, 5, "google.protobuf.StringValue"
       optional :short_code_name, :message, 6, "google.protobuf.StringValue"
