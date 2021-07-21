@@ -19,6 +19,8 @@ module Common
       set_results(response)
     end
 
+    # rubocop:disable Metrics/PerceivedComplexity
+    # rubocop:disable Metrics/CyclomaticComplexity
     def set_results(response)
       @results = {
         master_countries: response.countries&.each_with_object([]) do |country, arr|
@@ -62,5 +64,7 @@ module Common
         end
       }
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
+    # rubocop:enable Metrics/PerceivedComplexity
   end
 end
