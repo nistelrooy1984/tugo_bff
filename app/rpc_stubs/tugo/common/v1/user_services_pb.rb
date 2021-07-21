@@ -32,6 +32,10 @@ module Tugo
           # cmn_00010 User Login
           # --
           rpc :UserLogin, ::Tugo::Common::V1::LoginInfoRequest, ::Tugo::Common::V1::UserResponse
+          # --
+          # cmn_00013 Get User By User Id
+          # --
+          rpc :GetUserById, ::Tugo::Common::V1::UserIdRequest, ::Tugo::Common::V1::UserResponse
         end
 
         Stub = Service.rpc_stub_class
