@@ -34,7 +34,6 @@ module Common
             is_usable: country.is_usable&.value
           )
         end,
-
         master_provinces: response.provinces&.each_with_object([]) do |province, arr|
           arr << Common::ProvinceModel.new(
             id: province.id&.value,
@@ -48,7 +47,6 @@ module Common
             master_country_id: province.master_country_id&.value
           )
         end,
-
         master_districts: response.districts&.each_with_object([]) do |district, arr|
           arr << Common::DistrictModel.new(
             id: district.id&.value,
