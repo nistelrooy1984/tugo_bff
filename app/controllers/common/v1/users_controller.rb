@@ -30,4 +30,12 @@ class Common::V1::UsersController < ApplicationApiController
     service.run!
     render json: service.result, serializer: Common::UserSerializer, status: :ok
   end
+
+  def user_id
+    request_params = Common::GetByUserIdRequestParams.new(params)
+    request_params.validate!
+    service = Common::GetByUserIdService.new(request_params, nil)
+    service.run!
+    render json: service.result, serializer: Common::UserSerializer, status: :ok
+  end
 end
