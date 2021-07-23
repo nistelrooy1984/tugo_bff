@@ -18,6 +18,11 @@ Rails.application.routes.draw do
           get :user_id
         end
       end
+      resources :master, only: %i[] do
+        collection do
+          get :countries_provinces_districts
+        end
+      end
     end
   end
 
