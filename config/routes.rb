@@ -23,6 +23,11 @@ Rails.application.routes.draw do
           get :countries_provinces_districts
         end
       end
+      resources :master, only: %i[] do
+        collection do
+          get :wards
+        end
+      end
     end
   end
 
