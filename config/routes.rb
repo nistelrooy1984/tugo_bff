@@ -15,6 +15,12 @@ Rails.application.routes.draw do
         collection do
           get :login
           get :user_name
+          get :user_id
+        end
+      end
+      resources :master, only: %i[] do
+        collection do
+          get :countries_provinces_districts
         end
       end
       resources :master, only: %i[] do

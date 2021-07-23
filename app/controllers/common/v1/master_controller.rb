@@ -8,4 +8,10 @@ class Common::V1::MasterController < ApplicationApiController
     service.run!
     render json: service.results, each_serializer: Common::WardsSerializer, status: :ok
   end
+
+  def countries_provinces_districts
+    service = Common::GetCountriesProvincesDistrictsService.new(nil)
+    service.run!
+    render json: service.results, each_serializer: Common::GetCountriesProvincesDistrictsSerializer, status: :ok
+  end
 end
