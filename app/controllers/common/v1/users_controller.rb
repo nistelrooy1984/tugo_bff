@@ -20,7 +20,7 @@ class Common::V1::UsersController < ApplicationApiController
     request_params.validate!
     service = Common::UserLoginService.new(request_params, nil)
     service.run!
-    render json: service.result, serializer: Common::UserSerializer, status: :ok
+    render json: service.result, status: :ok
   end
 
   def user_name

@@ -74,3 +74,6 @@ gem 'rack-health', '~> 0.1.2'
 
 # An easy way to keep your users' passwords secure.
 gem 'bcrypt', '~> 3.1', '>= 3.1.16'
+
+# A pure ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
+gem 'jwt', '~> 2.2', '>= 2.2.3'

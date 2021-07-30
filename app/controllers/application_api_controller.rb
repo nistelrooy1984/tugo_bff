@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class ApplicationApiController < ApplicationController
+  include TugoCommon::RequestHandler::AuthRestHeaderHandler
+  include TugoCommon::RequestHandler::JwtHandler
+
   rescue_from StandardError, with: :render_exception
 
   def render_exception(exception)
