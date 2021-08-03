@@ -26,10 +26,7 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
       optional :user, :message, 1, "tugo.common.v1.User"
     end
     add_message "tugo.common.v1.LoginInfoRequest" do
-      optional :user_name, :message, 1, "google.protobuf.StringValue"
-      optional :email, :message, 2, "google.protobuf.StringValue"
-      optional :phone, :message, 3, "google.protobuf.StringValue"
-      optional :encrypted_password, :message, 4, "google.protobuf.StringValue"
+      optional :user_info, :message, 1, "google.protobuf.StringValue"
     end
     add_message "tugo.common.v1.User" do
       optional :id, :message, 1, "google.protobuf.Int64Value"

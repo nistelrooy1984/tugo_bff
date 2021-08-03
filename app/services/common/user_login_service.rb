@@ -11,10 +11,7 @@ module Common
 
     def run!
       request_message = Tugo::Common::V1::LoginInfoRequest.new(
-        user_name: proto_string(@request_params.user_name),
-        encrypted_password: proto_string(@request_params.password),
-        email: proto_string(@request_params.email),
-        phone: proto_string(@request_params.phone)
+        user_info: proto_string(@request_params.user_info)
       )
 
       response = TugoCommon::GrpcService.call_grpc(
@@ -28,6 +25,8 @@ module Common
       raise TugoCommon::RequestParamsBase::InvalidRequestParams, OpenStruct.new(messages: { password: I18n.t('errors.messages.user.invalid_password') }) unless is_authentication?(response.user.encrypted_password&.value)
 
       set_result(response.user)
+    rescue Gruf::Client::Errors::NotFound => e
+      raise TugoCommon::RequestParamsBase::InvalidRequestParams, OpenStruct.new(messages: { user_info: e.error['message'] })
     end
 
     def set_result(user)
