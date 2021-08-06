@@ -46,7 +46,6 @@ module Common
       }
 
       @result = {
-        auth_token: (JWT.encode payload, nil, 'none'),
         user: {
           id: user.id&.value,
           user_name: user.user_name&.value,
@@ -54,7 +53,8 @@ module Common
           last_name: user.last_name&.value,
           email: user.email&.value,
           phone: user.phone&.value,
-          role_id: user.role_id&.value
+          role_id: user.role_id&.value,
+          auth_token: (JWT.encode payload, nil, 'none')
         }
       }
     end
