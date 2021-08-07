@@ -24,7 +24,7 @@ module Common
     validates :id, numericality: { only_integer: true, greater_than: 0 }, allow_blank: true
     validates :user_name,
               :last_name, presence: true
-    validates :role_id, :modified_by_id, numericality: { only_integer: true, greater_than: 0 }
+    validates :role_id, :modified_by_id, numericality: { only_integer: true, greater_than: 0 }, allow_blank: true
     validates :is_admin, inclusion: { in: [true, false] }, allow_blank: true
     validates :email, email: true, allow_blank: true
     validates :password, presence: true,
