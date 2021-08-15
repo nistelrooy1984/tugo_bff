@@ -32,7 +32,7 @@ module Common
       )
 
       response = TugoCommon::GrpcService.call_grpc(
-        nil,
+        @auth_header,
         Settings.common.host,
         Tugo::Common::V1::UserService,
         :UpsertUser,
