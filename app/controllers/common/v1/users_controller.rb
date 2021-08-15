@@ -38,4 +38,12 @@ class Common::V1::UsersController < ApplicationApiController
     service.run!
     render json: service.result, serializer: Common::UserSerializer, status: :ok
   end
+
+  def subordinate_users
+    request_params = Common::GetByUserIdRequestParams.new(params)
+    request_params.validate!
+    service = Common::GetSubordinateUsersService.new(request_params, nil)
+    service.run!
+    render json: service.results, serializer: Common::UsersSerializer, status: :ok
+  end
 end

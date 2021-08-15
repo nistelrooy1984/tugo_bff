@@ -36,6 +36,10 @@ module Tugo
           # cmn_00013 Get User By User Id
           # --
           rpc :GetUserById, ::Tugo::Common::V1::UserIdRequest, ::Tugo::Common::V1::UserResponse
+          # --
+          # cmn_00014 Function to get subordinates Users
+          # --
+          rpc :GetRoleBasedSubordinateUsers, ::Tugo::Common::V1::UserIdRequest, ::Tugo::Common::V1::UsersResponse
         end
 
         Stub = Service.rpc_stub_class

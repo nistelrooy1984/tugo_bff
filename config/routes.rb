@@ -17,6 +17,7 @@ Rails.application.routes.draw do
           get :login
           get :user_name
           get :user_id
+          get :subordinate_users
         end
       end
       resources :master, only: %i[] do
