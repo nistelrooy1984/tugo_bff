@@ -2,7 +2,9 @@
 
 class Contacts::V1::ContactsController < ApplicationApiController
   def index
-    render json: { contacts: Settings.contacts.host }, status: :ok
+    service = Contacts::GetContactsService.new(nil)
+    service.run!
+    render json: service.results, serializer: Contacts::ContactsSerializer, status: :ok
   end
 
   def show
