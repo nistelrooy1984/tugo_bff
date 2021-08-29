@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class Contacts::V1::ContactsController < ApplicationApiController
+  include TugoCommon::RequestHandler::AuthRestHeaderHandler
+
   def index
-    service = Contacts::GetContactsService.new(nil)
+    service = Contacts::GetContactsService.new(auth_header)
     service.run!
     render json: service.results, serializer: Contacts::ContactsSerializer, status: :ok
   end
@@ -10,7 +12,7 @@ class Contacts::V1::ContactsController < ApplicationApiController
   def show
     request_params = Contacts::ShowContactRequestParams.new(params)
     request_params.validate!
-    service = Contacts::ShowContactService.new(request_params, nil)
+    service = Contacts::ShowContactService.new(request_params, auth_header)
     service.run!
     render json: service.result, serializer: Contacts::ContactSerializer, status: :ok
   end
@@ -18,7 +20,7 @@ class Contacts::V1::ContactsController < ApplicationApiController
   def create
     request_params = Contacts::UpsertContactRequestParams.new(params)
     request_params.validate!
-    service = Contacts::UpsertContactService.new(request_params, nil)
+    service = Contacts::UpsertContactService.new(request_params, auth_header)
     service.run!
     render json: service.result, serializer: Contacts::UpsertContactSerializer, status: :ok
   end
@@ -26,7 +28,7 @@ class Contacts::V1::ContactsController < ApplicationApiController
   def assigned_to
     request_params = Contacts::AssignedToRequestParams.new(params)
     request_params.validate!
-    service = Contacts::AssignedToService.new(request_params, nil)
+    service = Contacts::AssignedToService.new(request_params, auth_header)
     service.run!
     render json: service.results, serializer: Contacts::ContactsSerializer, status: :ok
   end

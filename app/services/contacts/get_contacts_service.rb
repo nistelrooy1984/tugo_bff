@@ -10,7 +10,7 @@ module Contacts
 
     def run!
       responses = TugoCommon::GrpcService.call_grpc(
-        nil,
+        @auth_header,
         Settings.contacts.host,
         Tugo::Contacts::V1::ContactService,
         :GetContacts
