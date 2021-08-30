@@ -49,6 +49,7 @@ Rails.application.routes.draw do
         collection do
           get :assigned_to
           post :upsert
+          get :search
         end
       end
     end
