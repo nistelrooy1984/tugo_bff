@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module Leads
   class SearchLeadsRequestParams < TugoCommon::RequestParamsBase
-    attribute :first_name, :string 
-    attribute :last_name, :string 
-    attribute :phone, :string 
-    attribute :email, :string 
-    attribute :owner_id, :integer 
+    attribute :first_name, :string
+    attribute :last_name, :string
+    attribute :phone, :string
+    attribute :email, :string
+    attribute :owner_id, :integer
 
     validates :owner_id, numericality: { only_integer: true, greater_than: 0 }, allow_blank: true
 

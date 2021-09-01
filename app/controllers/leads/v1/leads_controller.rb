@@ -2,7 +2,7 @@
 
 class Leads::V1::LeadsController < ApplicationApiController
   include TugoCommon::RequestHandler::AuthRestHeaderHandler
-  
+
   def index
     service = Leads::GetLeadsService.new(nil)
     service.run!

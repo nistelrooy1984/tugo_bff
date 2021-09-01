@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Leads
   class SearchLeadsService < Leads::ServiceBase
     attr_reader :results
@@ -13,7 +15,7 @@ module Leads
         last_name: proto_string(@request_params.last_name),
         phone: proto_string(@request_params.phone),
         email: proto_string(@request_params.email),
-        owner_id: proto_int64(@request_params.owner_id),
+        owner_id: proto_int64(@request_params.owner_id)
       )
 
       responses = TugoCommon::GrpcService.call_grpc(
@@ -27,6 +29,8 @@ module Leads
       set_results(responses.leads)
     end
 
+    # rubocop:disable Metrics/PerceivedComplexity
+    # rubocop:disable Metrics/CyclomaticComplexity
     def set_results(leads)
       @results = Leads::LeadsModel.new(
         leads: leads.each_with_object([]) do |lead, arr|
@@ -55,5 +59,7 @@ module Leads
         end
       )
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
+    # rubocop:enable Metrics/PerceivedComplexity
   end
 end
