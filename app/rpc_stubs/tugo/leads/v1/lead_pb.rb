@@ -31,13 +31,6 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     add_message "tugo.leads.v1.UpsertLeadsResponse" do
       repeated :leads, :message, 1, "tugo.leads.v1.Lead"
     end
-    add_message "tugo.leads.v1.SearchRequest" do
-      optional :first_name, :message, 1, "google.protobuf.StringValue"
-      optional :last_name, :message, 2, "google.protobuf.StringValue"
-      optional :phone, :message, 3, "google.protobuf.StringValue"
-      optional :email, :message, 4, "google.protobuf.StringValue"
-      optional :owner_id, :message, 5, "google.protobuf.Int64Value"
-    end
     add_message "tugo.leads.v1.Lead" do
       optional :id, :message, 1, "google.protobuf.Int64Value"
       optional :first_name, :message, 2, "google.protobuf.StringValue"
@@ -74,7 +67,6 @@ module Tugo
       UpsertLeadResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.leads.v1.UpsertLeadResponse").msgclass
       UpsertLeadsRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.leads.v1.UpsertLeadsRequest").msgclass
       UpsertLeadsResponse = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.leads.v1.UpsertLeadsResponse").msgclass
-      SearchRequest = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.leads.v1.SearchRequest").msgclass
       Lead = ::Google::Protobuf::DescriptorPool.generated_pool.lookup("tugo.leads.v1.Lead").msgclass
     end
   end
