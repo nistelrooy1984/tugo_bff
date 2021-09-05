@@ -60,6 +60,13 @@ module Common
           name: proto_string(value[:name])
         )
       end
+
+      def to_bool(str)
+        return str if str.is_a?(FalseClass) || str.is_a?(TrueClass)
+        return if !str.is_a?(String) || %w[TRUE True true FALSE False false].exclude?(str)
+
+        %w[TRUE True true].include?(str)
+      end
     end
   end
 end
