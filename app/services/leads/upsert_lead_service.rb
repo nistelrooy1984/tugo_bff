@@ -28,6 +28,7 @@ module Leads
           description: proto_string(@request_params.description),
           creator_id: proto_int64(@request_params.creator_id),
           owner_id: proto_int64(@request_params.owner_id),
+          modified_by_id: proto_int64(@request_params.modified_by_id),
           salutation: proto_string(@request_params.salutation),
           other_phone: proto_string(@request_params.other_phone),
           street: proto_string(@request_params.street),
