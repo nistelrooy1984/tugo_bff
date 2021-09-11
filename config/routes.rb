@@ -40,6 +40,7 @@ Rails.application.routes.draw do
           get :assigned_to
         end
       end
+      resources :masters, only: %i[index]
     end
   end
 
