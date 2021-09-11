@@ -15,7 +15,7 @@ module Leads
       )
 
       response = TugoCommon::GrpcService.call_grpc(
-        nil,
+        @auth_header,
         Settings.leads.host,
         Tugo::Leads::V1::LeadService,
         :GetLeadById,
