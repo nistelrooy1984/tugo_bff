@@ -53,6 +53,7 @@ Rails.application.routes.draw do
           get :search
         end
       end
+      resources :masters, only: %i[index]
     end
   end
 

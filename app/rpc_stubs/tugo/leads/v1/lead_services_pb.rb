@@ -36,6 +36,10 @@ module Tugo
           # led_00005 Upsert Leads
           # --
           rpc :UpsertLeads, ::Tugo::Leads::V1::UpsertLeadsRequest, ::Tugo::Leads::V1::UpsertLeadsResponse
+          # --
+          # led_00006 Search Leads
+          # --
+          rpc :SearchLeads, ::Tugo::Leads::V1::SearchRequest, ::Tugo::Leads::V1::LeadsResponse
         end
 
         Stub = Service.rpc_stub_class
