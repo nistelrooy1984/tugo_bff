@@ -11,7 +11,6 @@ module Leads
     attribute :master_lead_source_id, :integer
     attribute :master_industry_id, :integer
     attribute :master_rating_id, :integer
-    attribute :address, :string
     attribute :master_ward_id, :integer
     attribute :master_district_id, :integer
     attribute :master_province_id, :integer
@@ -20,6 +19,10 @@ module Leads
     attribute :creator_id, :integer
     attribute :owner_id, :integer
     attribute :modified_by_id, :integer
+    attribute :salutation, :string
+    attribute :other_phone, :string
+    attribute :street, :string
+    attribute :delete_flag, :integer
 
     validates :last_name, presence: true
     validates :creator_id, numericality: { only_integer: true, greater_than: 0 }
@@ -37,7 +40,6 @@ module Leads
         master_lead_source_id: params[:master_lead_source_id],
         master_industry_id: params[:master_industry_id],
         master_rating_id: params[:master_rating_id],
-        address: params[:address],
         master_ward_id: params[:master_ward_id],
         master_district_id: params[:master_district_id],
         master_province_id: params[:master_province_id],
@@ -45,7 +47,11 @@ module Leads
         description: params[:description],
         creator_id: params[:creator_id],
         owner_id: params[:owner_id],
-        modified_by_id: params[:modified_by_id]
+        modified_by_id: params[:modified_by_id],
+        salutation: params[:salutation],
+        other_phone: params[:other_phone],
+        street: params[:street],
+        delete_flag: params[:delete_flag]
       )
     end
   end

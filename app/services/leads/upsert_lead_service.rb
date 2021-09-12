@@ -21,7 +21,6 @@ module Leads
           master_lead_source_id: proto_int64(@request_params.master_lead_source_id),
           master_industry_id: proto_int64(@request_params.master_industry_id),
           master_rating_id: proto_int64(@request_params.master_rating_id),
-          address: proto_string(@request_params.address),
           master_ward_id: proto_int64(@request_params.master_ward_id),
           master_district_id: proto_int64(@request_params.master_district_id),
           master_province_id: proto_int64(@request_params.master_province_id),
@@ -29,7 +28,11 @@ module Leads
           description: proto_string(@request_params.description),
           creator_id: proto_int64(@request_params.creator_id),
           owner_id: proto_int64(@request_params.owner_id),
-          modified_by_id: proto_int64(@request_params.modified_by_id)
+          modified_by_id: proto_int64(@request_params.modified_by_id),
+          salutation: proto_string(@request_params.salutation),
+          other_phone: proto_string(@request_params.other_phone),
+          street: proto_string(@request_params.street),
+          delete_flag: proto_int64(@request_params.delete_flag)
         )
       )
 
@@ -57,7 +60,6 @@ module Leads
         master_lead_source_id: lead.master_lead_source_id&.value,
         master_industry_id: lead.master_industry_id&.value,
         master_rating_id: lead.master_rating_id&.value,
-        address: lead.address&.value,
         master_ward_id: lead.master_ward_id&.value,
         master_district_id: lead.master_district_id&.value,
         master_province_id: lead.master_province_id&.value,
@@ -66,6 +68,10 @@ module Leads
         creator_id: lead.creator_id&.value,
         owner_id: lead.owner_id&.value,
         modified_by_id: lead.modified_by_id&.value,
+        salutation: lead.salutation&.value,
+        other_phone: lead.other_phone&.value,
+        street: lead.street&.value,
+        delete_flag: lead.delete_flag&.value,
         created_at: lead.created_at&.value,
         updated_at: lead.updated_at&.value
       )

@@ -11,7 +11,6 @@ module Leads
                :master_lead_source_id,
                :master_industry_id,
                :master_rating_id,
-               :address,
                :master_ward_id,
                :master_district_id,
                :master_province_id,
@@ -20,6 +19,10 @@ module Leads
                :creator_id,
                :owner_id,
                :modified_by_id,
+               :salutation,
+               :other_phone,
+               :street,
+               :delete_flag,
                :created_at,
                :updated_at
     delegate :id,
@@ -31,7 +34,6 @@ module Leads
              :master_lead_source_id,
              :master_industry_id,
              :master_rating_id,
-             :address,
              :master_ward_id,
              :master_district_id,
              :master_province_id,
@@ -40,6 +42,10 @@ module Leads
              :creator_id,
              :owner_id,
              :modified_by_id,
+             :salutation,
+             :other_phone,
+             :street,
+             :delete_flag,
              :created_at,
              :updated_at, to: :object
   end
